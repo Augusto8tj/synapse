@@ -76,7 +76,7 @@
         "dataNascimento": {
           "type": "string",
           "description": "Data de nascimento do usuário.",
-          "format": "date-time"
+          "format": "date"
         },
         "perfil": {
           "type": "string",
@@ -120,7 +120,7 @@
           "schema": {
             "$ref": "#/backend/entities/Usuario"
           },
-          "description": "Stores user profile information.  Path-based ownership ensures that only the user can read/write to their profile.",
+          "description": "Stores user profile information. Path-based ownership ensures that only the user can read/write to their profile.",
           "params": [
             {
               "name": "userId",
@@ -150,6 +150,6 @@
         }
       }
     ],
-    "reasoning": "The data structure prioritizes authorization independence and supports secure list operations (QAPs). User data and activity history are segregated into path-based collections under each user's ID, ensuring only the user can access their data. The `HistoricoAtividade` includes the `usuarioId` for explicit ownership, eliminating the need for `get()` calls in security rules.\n\nThis design uses path-based ownership, meaning all authorization is based on the path `/users/{userId}/historico_atividades/{atividadeId}`.  There is no reliance on data within the documents to determine access.  This means that read/write operations are atomic and not susceptible to race conditions.\n\nThe design uses Structural Segregation by placing activity history inside the user's document, ensuring that only the user can access this data. This segregation supports the QAPs principle because list operations are inherently scoped to a single user, removing the risk of unauthorized data exposure."
+    "reasoning": "The data structure prioritizes authorization independence and supports secure list operations (QAPs). User data and activity history are segregated into path-based collections under each user's ID, ensuring only the user can access their data. The `HistoricoAtividade` includes the `usuarioId` for explicit ownership, eliminating the need for `get()` calls in security rules.\n\nThis design uses path-based ownership, meaning all authorization is based on the path `/users/{userId}/historico_atividades/{atividadeId}`. There is no reliance on data within the documents to determine access. This means that read/write operations are atomic and not susceptible to race conditions.\n\nThe design uses Structural Segregation by placing activity history inside the user's document, ensuring that only the user can access this data. This segregation supports the QAPs principle because list operations are inherently scoped to a single user, removing the risk of unauthorized data exposure."
   }
 }
