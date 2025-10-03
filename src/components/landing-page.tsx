@@ -69,16 +69,16 @@ export function LandingPage() {
               personalizada.
             </p>
           </div>
-          <div className="mx-auto mt-12 grid max-w-5xl gap-8 md:grid-cols-2">
+          <div className="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2">
             {Object.values(profiles).map((profile) => (
               <Link
                 href={`/dashboard?profile=${profile.id}`}
                 key={profile.id}
                 className="group"
               >
-                <Card className="h-full transform transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-primary/20 group-hover:shadow-2xl">
-                  <CardHeader className="flex flex-row items-center gap-4">
-                    <Avatar className="h-16 w-16">
+                <Card className="h-full transform transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-primary/20 group-hover:shadow-2xl animate-pulse-slow group-hover:animate-none">
+                  <CardHeader className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                    <Avatar className="h-20 w-20 sm:h-16 sm:w-16 transition-all">
                       <AvatarImage
                         src={profile.avatar}
                         alt={profile.name}
@@ -86,20 +86,20 @@ export function LandingPage() {
                       />
                       <AvatarFallback>{profile.initials}</AvatarFallback>
                     </Avatar>
-                    <div>
-                      <CardTitle className="font-headline text-2xl">
+                    <div className="w-full">
+                      <CardTitle className="font-headline text-xl sm:text-2xl">
                         {profile.name}
                       </CardTitle>
                       <CardDescription>{`Idade: ${profile.age} anos`}</CardDescription>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-sm sm:text-base">
                       {profile.description}
                     </p>
                     <Button
                       variant="link"
-                      className="mt-4 px-0 text-primary"
+                      className="mt-4 px-0 text-primary font-bold"
                     >
                       Começar a exploração
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
