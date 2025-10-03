@@ -11,6 +11,7 @@ import {
   Blocks,
   BrainCircuit,
   GraduationCap,
+  Lightbulb,
 } from "lucide-react";
 
 const getImage = (id: string) =>
@@ -132,7 +133,7 @@ export const activities: Activity[] = [
     description:
       "Una suas habilidades em desafios que exigem trabalho em equipe.",
     Icon: Users,
-    href: "#",
+    href: "/collab-projects",
     profiles: ["engenheiro", "narrador"],
     image: getImage("collab-projects").imageUrl,
     imageHint: getImage("collab-projects").imageHint,
