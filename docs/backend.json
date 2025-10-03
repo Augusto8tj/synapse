@@ -1,0 +1,155 @@
+{
+  "entities": {
+    "HistoricoAtividade": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "HistoricoAtividade",
+      "type": "object",
+      "description": "Histórico das atividades realizadas pelas crianças no aplicativo.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identificador único do histórico de atividade."
+        },
+        "usuarioId": {
+          "type": "string",
+          "description": "Referência ao Usuario que realizou a atividade. (Relacionamento: Usuario 1:N HistoricoAtividade)"
+        },
+        "modulo": {
+          "type": "string",
+          "description": "Módulo em que a atividade foi realizada (Laboratório de Invenções, Estúdio de Programação, etc.)."
+        },
+        "tipoAtividade": {
+          "type": "string",
+          "description": "Tipo da atividade realizada (criação de projeto, resolução de problema, etc.)."
+        },
+        "dataHora": {
+          "type": "string",
+          "description": "Data e hora em que a atividade foi realizada.",
+          "format": "date-time"
+        },
+        "descricao": {
+          "type": "string",
+          "description": "Descrição detalhada da atividade realizada."
+        },
+        "progresso": {
+          "type": "number",
+          "description": "Progresso da atividade (0 a 100%)."
+        },
+        "resultado": {
+          "type": "string",
+          "description": "Resultado da atividade (sucesso, falha, incompleto)."
+        },
+        "recursosUtilizados": {
+          "type": "array",
+          "description": "Lista de recursos utilizados na atividade (imagens, sons, vídeos, etc.).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contexto": {
+          "type": "string",
+          "description": "Contexto da atividade, incluindo informações sobre o estado do jogo, configurações, etc."
+        }
+      },
+      "required": [
+        "id",
+        "usuarioId",
+        "modulo",
+        "tipoAtividade",
+        "dataHora"
+      ]
+    },
+    "Usuario": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Usuario",
+      "type": "object",
+      "description": "Informações do usuário (criança).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identificador único do usuário."
+        },
+        "nome": {
+          "type": "string",
+          "description": "Nome do usuário."
+        },
+        "dataNascimento": {
+          "type": "string",
+          "description": "Data de nascimento do usuário.",
+          "format": "date-time"
+        },
+        "perfil": {
+          "type": "string",
+          "description": "Perfil do usuário (Engenheiro Criativo ou Narrador Imaginativo)."
+        },
+        "interesses": {
+          "type": "array",
+          "description": "Lista de interesses do usuário.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "habilidades": {
+          "type": "array",
+          "description": "Lista de habilidades do usuário.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "nome",
+        "dataNascimento",
+        "perfil"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "Usuario",
+          "schema": {
+            "$ref": "#/backend/entities/Usuario"
+          },
+          "description": "Stores user profile information.  Path-based ownership ensures that only the user can read/write to their profile.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user, matching the Firebase Auth UID."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/historico_atividades/{atividadeId}",
+        "definition": {
+          "entityName": "HistoricoAtividade",
+          "schema": {
+            "$ref": "#/backend/entities/HistoricoAtividade"
+          },
+          "description": "Stores the activity history for each user. Includes the `usuarioId` field, which is redundant, but provides authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user who performed the activity."
+            },
+            {
+              "name": "atividadeId",
+              "description": "The unique identifier of the activity history entry."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The data structure prioritizes authorization independence and supports secure list operations (QAPs). User data and activity history are segregated into path-based collections under each user's ID, ensuring only the user can access their data. The `HistoricoAtividade` includes the `usuarioId` for explicit ownership, eliminating the need for `get()` calls in security rules.\n\nThis design uses path-based ownership, meaning all authorization is based on the path `/users/{userId}/historico_atividades/{atividadeId}`.  There is no reliance on data within the documents to determine access.  This means that read/write operations are atomic and not susceptible to race conditions.\n\nThe design uses Structural Segregation by placing activity history inside the user's document, ensuring that only the user can access this data. This segregation supports the QAPs principle because list operations are inherently scoped to a single user, removing the risk of unauthorized data exposure."
+  }
+}

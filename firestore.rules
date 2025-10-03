@@ -1,0 +1,91 @@
+/**
+ * @fileoverview Firestore Security Rules for the "Crescer Aprendendo" application.
+ *
+ * Core Philosophy:
+ * This ruleset enforces a strict user-ownership model, ensuring that each user can only access their own data.
+ *
+ * Data Structure:
+ * - /users/{userId}: Stores user profile information.
+ * - /users/{userId}/historico_atividades/{atividadeId}: Stores activity history for each user.
+ *
+ * Key Security Decisions:
+ * - Users can only create, read, update, and delete their own user documents and activity history.
+ * - Listing activity history is restricted to the owner.
+ *
+ * Denormalization for Authorization:
+ * - The `HistoricoAtividade` entity includes the `usuarioId` field to allow for simple ownership checks without additional `get()` calls.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Controls access to user profile information.
+     * @path /users/{userId}
+     * @allow (create) User with UID 'user123' can create their profile document.
+     * @allow (get) User with UID 'user123' can get their profile document.
+     * @allow (update) User with UID 'user123' can update their profile document.
+     * @allow (delete) User with UID 'user123' can delete their profile document.
+     * @deny (create) User with UID 'user456' cannot create a profile document for 'user123'.
+     * @principle Enforces document ownership for writes.
+     */
+    match /users/{userId} {
+      // Helper function to check if the user is signed in.
+      function isSignedIn() {
+        return request.auth != null;
+      }
+
+      // Helper function to check if the user is the owner of the document.
+      function isOwner(userId) {
+        return isSignedIn() && request.auth.uid == userId;
+      }
+
+      // Helper function to check if the user is an existing owner of the document.
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get: if isOwner(userId);
+      allow list: if false;
+
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Controls access to activity history for each user.
+     * @path /users/{userId}/historico_atividades/{atividadeId}
+     * @allow (create) User with UID 'user123' can create a new activity history entry.
+     * @allow (get) User with UID 'user123' can get their activity history entry.
+     * @allow (list) User with UID 'user123' can list their activity history entries.
+     * @allow (update) User with UID 'user123' can update their activity history entry.
+     * @allow (delete) User with UID 'user123' can delete their activity history entry.
+     * @deny (create) User with UID 'user456' cannot create an activity history entry for 'user123'.
+     * @principle Enforces document ownership for writes.
+     */
+    match /users/{userId}/historico_atividades/{atividadeId} {
+      // Helper function to check if the user is signed in.
+      function isSignedIn() {
+        return request.auth != null;
+      }
+
+      // Helper function to check if the user is the owner of the document.
+      function isOwner(userId) {
+        return isSignedIn() && request.auth.uid == userId;
+      }
+
+      // Helper function to check if the user is an existing owner of the document.
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get: if isOwner(userId);
+      allow list: if isOwner(userId);
+
+      allow create: if isOwner(userId) && request.resource.data.usuarioId == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.usuarioId == resource.data.usuarioId;
+      allow delete: if isExistingOwner(userId);
+    }
+  }
+}
