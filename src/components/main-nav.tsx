@@ -32,13 +32,13 @@ export function MainNav() {
 
   return (
     <SidebarMenu>
-       <SidebarMenuItem key="/dashboard">
+       <SidebarMenuItem key="/">
             <SidebarMenuButton
               asChild
-              isActive={pathname === '/dashboard'}
+              isActive={pathname === '/'}
               tooltip={{ children: "Início", side: "right" }}
             >
-              <Link href={`/dashboard?profile=${profile}`}>
+              <Link href={`/`}>
                 <Home />
                 <span>Início</span>
               </Link>
