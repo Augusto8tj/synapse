@@ -50,9 +50,9 @@
     },
     {
       "id": "physics-lab",
-      "description": "An illustration of an atom with electrons orbiting a nucleus, representing nuclear physics.",
-      "imageUrl": "https://images.unsplash.com/photo-1599395243685-3e199341c66b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhdG9tJTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc1OTczODQyNnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "atom illustration"
+      "description": "An illustration of a glowing atom with orbiting electrons, stimulating curiosity about physics.",
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhdG9tJTIwZ2xvd2luZ3xlbnwwfHx8fDE3NjAyNTY2MTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "glowing atom"
     },
     {
       "id": "language-adventure",
