@@ -8,9 +8,9 @@
     },
     {
       "id": "engenheiro-avatar",
-      "description": "Avatar for the Creative Engineer profile, a stylized icon of a gear mixed with a lightbulb.",
-      "imageUrl": "https://images.unsplash.com/photo-1706701665989-4c103def119f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnZWFyJTIwbGlnaHRidWxifGVufDB8fHx8MTc1OTQ1NDUyMXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gear lightbulb"
+      "description": "Avatar for the Creative Engineer profile, a stylized icon of a science flask.",
+      "imageUrl": "https://images.unsplash.com/photo-1628466858348-154942858163?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzY2llbmNlJTIwZmxhc2t8ZW58MHx8fHwxNzYwMzU2NDcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "science flask"
     },
     {
       "id": "narrador-avatar",
