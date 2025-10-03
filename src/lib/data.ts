@@ -6,6 +6,7 @@ import {
   BookHeart,
   Construction,
   Users,
+  Atom,
 } from "lucide-react";
 
 const getImage = (id: string) =>
@@ -58,6 +59,16 @@ export const activities: Activity[] = [
     profiles: ["engenheiro"],
     image: getImage("studio-programming").imageUrl,
     imageHint: getImage("studio-programming").imageHint,
+  },
+  {
+    id: "quantum-explorer",
+    title: "Explorador Quântico",
+    description: "Descubra os segredos das partículas e da física nuclear.",
+    Icon: Atom,
+    href: "#",
+    profiles: ["engenheiro"],
+    image: getImage("physics-lab").imageUrl,
+    imageHint: getImage("physics-lab").imageHint,
   },
   {
     id: "story-studio",

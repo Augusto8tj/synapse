@@ -47,6 +47,12 @@
       "description": "Image for the Collaborative Projects activity, showing two hands working together to build with glowing blocks.",
       "imageUrl": "https://images.unsplash.com/photo-1623047121452-d6ddd82b9cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoYW5kcyUyMGJ1aWxkaW5nfGVufDB8fHx8MTc1OTQ1NDUyMXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "hands building"
+    },
+    {
+      "id": "physics-lab",
+      "description": "An illustration of an atom with electrons orbiting a nucleus, representing nuclear physics.",
+      "imageUrl": "https://images.unsplash.com/photo-1599395243685-3e199341c66b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhdG9tJTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc1OTczODQyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "atom illustration"
     }
   ]
 }
