@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+import { useState, useRef, useEffect } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import {
   Loader2,
   Sparkles,
@@ -11,15 +11,15 @@ import {
   Mic,
   Square,
   Volume2,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -27,18 +27,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
-import { generateAnswerAction } from './actions';
+} from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { generateAnswerAction } from "./actions";
 
 const formSchema = z.object({
   question: z
     .string()
     .min(10, {
-      message: 'Sua pergunta precisa ter pelo menos 10 letras.',
+      message: "Sua pergunta precisa ter pelo menos 10 letras.",
     })
-    .max(500, { message: 'Sua pergunta pode ter no máximo 500 letras.' }),
+    .max(500, { message: "Sua pergunta pode ter no máximo 500 letras." }),
 });
 
 export default function TutorPage() {
@@ -52,48 +52,49 @@ export default function TutorPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      question: '',
+      question: "",
     },
   });
 
   useEffect(() => {
     // SpeechRecognition is a browser-only API
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const SpeechRecognition =
         window.SpeechRecognition || window.webkitSpeechRecognition;
       if (SpeechRecognition) {
         recognitionRef.current = new SpeechRecognition();
         recognitionRef.current.continuous = true;
         recognitionRef.current.interimResults = true;
-        recognitionRef.current.lang = 'pt-BR';
+        recognitionRef.current.lang = "pt-BR";
 
         recognitionRef.current.onresult = (event: any) => {
-          let interimTranscript = '';
-          let finalTranscript = '';
+          let interimTranscript = "";
+          let finalTranscript = "";
           for (let i = 0; i < event.results.length; i++) {
             const transcript = event.results[i][0].transcript;
             if (event.results[i].isFinal) {
-              finalTranscript += transcript + ' ';
+              finalTranscript += transcript + " ";
             } else {
               interimTranscript += transcript;
             }
           }
-          form.setValue('question', finalTranscript + interimTranscript);
+          form.setValue("question", finalTranscript + interimTranscript);
         };
 
         recognitionRef.current.onerror = (event: any) => {
-          if (event.error === 'not-allowed') {
+          if (event.error === "not-allowed") {
             toast({
-              variant: 'destructive',
-              title: 'Microfone não permitido',
-              description: 'Para usar o reconhecimento de voz, você precisa permitir o acesso ao microfone nas configurações do seu navegador.',
+              variant: "destructive",
+              title: "Microfone não permitido",
+              description:
+                "Para usar o reconhecimento de voz, você precisa permitir o acesso ao microfone nas configurações do seu navegador.",
             });
           } else {
-            console.error('Speech recognition error:', event.error);
+            console.error("Speech recognition error:", event.error);
             toast({
-              variant: 'destructive',
-              title: 'Erro no microfone',
-              description: 'Não conseguimos acessar seu microfone.',
+              variant: "destructive",
+              title: "Erro no microfone",
+              description: "Não conseguimos acessar seu microfone.",
             });
           }
           setIsRecording(false);
@@ -108,14 +109,14 @@ export default function TutorPage() {
       setIsRecording(false);
     } else {
       if (recognitionRef.current) {
-        form.setValue('question', '');
+        form.setValue("question", "");
         recognitionRef.current.start();
         setIsRecording(true);
       } else {
         toast({
-          variant: 'destructive',
-          title: 'Navegador não suportado',
-          description: 'Seu navegador não suporta o reconhecimento de voz.',
+          variant: "destructive",
+          title: "Navegador não suportado",
+          description: "Seu navegador não suporta o reconhecimento de voz.",
         });
       }
     }
@@ -128,7 +129,7 @@ export default function TutorPage() {
       return;
     }
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'pt-BR';
+    utterance.lang = "pt-BR";
     utterance.onstart = () => setIsSpeaking(true);
     utterance.onend = () => setIsSpeaking(false);
     utterance.onerror = () => setIsSpeaking(false);
@@ -145,11 +146,11 @@ export default function TutorPage() {
       setAnswer(result.data.answer);
     } else {
       toast({
-        variant: 'destructive',
-        title: 'Oh não! Algo deu errado.',
+        variant: "destructive",
+        title: "Oh não! Algo deu errado.",
         description:
           result.error ||
-          'Não conseguimos processar sua pergunta. Tente novamente.',
+          "Não conseguimos processar sua pergunta. Tente novamente.",
       });
     }
 
@@ -181,23 +182,24 @@ export default function TutorPage() {
                       <div className="relative">
                         <Textarea
                           placeholder="Ex: Por que o céu é azul?"
-                          className="min-h-[120px] resize-none text-base p-4 rounded-lg shadow-inner bg-background/80 pr-12"
+                          className="min-h-[120px] resize-none text-base p-4 rounded-lg shadow-inner bg-background/80 pr-20"
                           {...field}
                         />
                         <Button
                           type="button"
-                          variant="ghost"
+                          variant="outline"
                           size="icon"
                           onClick={handleToggleRecording}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full border-2 border-primary/50 text-muted-foreground hover:text-primary hover:bg-primary/10 data-[recording=true]:animate-pulse data-[recording=true]:border-accent data-[recording=true]:bg-accent/10 data-[recording=true]:text-accent"
+                          data-recording={isRecording}
                         >
                           {isRecording ? (
-                            <Square className="h-5 w-5 text-red-500" />
+                            <Square className="h-6 w-6" />
                           ) : (
-                            <Mic className="h-5 w-5" />
+                            <Mic className="h-6 w-6" />
                           )}
                           <span className="sr-only">
-                            {isRecording ? 'Parar gravação' : 'Gravar pergunta'}
+                            {isRecording ? "Parar gravação" : "Gravar pergunta"}
                           </span>
                         </Button>
                       </div>
@@ -239,7 +241,11 @@ export default function TutorPage() {
                     onClick={() => handleSpeak(answer)}
                     disabled={!answer}
                   >
-                    {isSpeaking ? <Square className="h-5 w-5 animate-pulse"/> : <Volume2 className="h-5 w-5" />}
+                    {isSpeaking ? (
+                      <Square className="h-5 w-5 animate-pulse" />
+                    ) : (
+                      <Volume2 className="h-5 w-5" />
+                    )}
                     <span className="sr-only">Ouvir resposta</span>
                   </Button>
                 )}
@@ -253,7 +259,9 @@ export default function TutorPage() {
                   </div>
                 )}
                 {answer && (
-                  <p className="text-foreground text-base leading-relaxed">{answer}</p>
+                  <p className="text-foreground text-base leading-relaxed">
+                    {answer}
+                  </p>
                 )}
               </Card>
             </div>
