@@ -82,12 +82,20 @@ export default function TutorPage() {
         };
 
         recognitionRef.current.onerror = (event: any) => {
-          console.error('Speech recognition error:', event.error);
-          toast({
-            variant: 'destructive',
-            title: 'Erro no microfone',
-            description: 'Não conseguimos acessar seu microfone.',
-          });
+          if (event.error === 'not-allowed') {
+            toast({
+              variant: 'destructive',
+              title: 'Microfone não permitido',
+              description: 'Para usar o reconhecimento de voz, você precisa permitir o acesso ao microfone nas configurações do seu navegador.',
+            });
+          } else {
+            console.error('Speech recognition error:', event.error);
+            toast({
+              variant: 'destructive',
+              title: 'Erro no microfone',
+              description: 'Não conseguimos acessar seu microfone.',
+            });
+          }
           setIsRecording(false);
         };
       }
