@@ -24,9 +24,7 @@ export function LandingPage() {
       <header className="container z-40 bg-background/50 backdrop-blur-sm fixed top-0 left-1/2 -translate-x-1/2">
         <div className="flex h-20 items-center justify-between py-6">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center gap-2 text-primary-foreground">
-              <Logo />
-            </div>
+            <Logo />
           </Link>
         </div>
       </header>
