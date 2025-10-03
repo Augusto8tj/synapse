@@ -24,9 +24,7 @@ export function LandingPage() {
       <header className="container z-40 bg-background/50 backdrop-blur-sm">
         <div className="flex h-20 items-center justify-between py-6">
           <Link href="/">
-            <div className="flex items-center gap-2">
               <Logo />
-            </div>
           </Link>
         </div>
       </header>
@@ -69,12 +67,12 @@ export function LandingPage() {
               personalizada.
             </p>
           </div>
-          <div className="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-2">
+          <div className="mx-auto mt-12 flex max-w-5xl flex-wrap justify-center gap-8">
             {Object.values(profiles).map((profile) => (
               <Link
                 href={`/dashboard?profile=${profile.id}`}
                 key={profile.id}
-                className="group"
+                className="group sm:w-80"
               >
                 <Card className="h-full transform transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-primary/20 group-hover:shadow-2xl animate-pulse-slow group-hover:animate-none">
                   <CardHeader className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
