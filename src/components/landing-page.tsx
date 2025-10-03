@@ -43,7 +43,7 @@ export function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
           <div className="container relative px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto space-y-4">
-              <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-foreground">
+              <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-foreground [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
                 Synapse: Mentes Criativas
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground">
