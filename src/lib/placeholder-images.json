@@ -77,6 +77,12 @@
       "description": "An illustration of a friendly owl wearing glasses in front of a chalkboard.",
       "imageUrl": "https://images.unsplash.com/photo-1518463892881-d587bf2c296a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aXNlJTIwb3dsfGVufDB8fHx8MTc2MDM0MjQwNnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wise owl"
+    },
+    {
+      "id": "invention-image",
+      "description": "A placeholder for the generated invention image.",
+      "imageUrl": "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaXNzaW9ufGVufDB8fHx8MTc2MDQzNDM0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "invention placeholder"
     }
   ]
 }

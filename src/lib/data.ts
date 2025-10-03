@@ -48,7 +48,7 @@ export const activities: Activity[] = [
     title: "Laboratório de Invenções",
     description: "Projete, construa e simule máquinas usando física e lógica.",
     Icon: FlaskConical,
-    href: "#",
+    href: "/lab-inventions",
     profiles: ["engenheiro"],
     image: getImage("lab-inventions").imageUrl,
     imageHint: getImage("lab-inventions").imageHint,
