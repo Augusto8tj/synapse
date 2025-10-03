@@ -21,10 +21,12 @@ export function LandingPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="container z-40 bg-background/50 backdrop-blur-sm fixed top-0 left-1/2 -translate-x-1/2">
+      <header className="container z-40 bg-background/50 backdrop-blur-sm">
         <div className="flex h-20 items-center justify-between py-6">
-          <Link href="/" className="flex items-center gap-2">
-            <Logo />
+          <Link href="/">
+            <div className="flex items-center gap-2">
+              <Logo />
+            </div>
           </Link>
         </div>
       </header>
