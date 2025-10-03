@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "synapse-hero",
+      "description": "A vibrant, abstract representation of a brain's neural network with glowing nodes and connections, symbolizing creativity and learning.",
+      "imageUrl": "https://images.unsplash.com/photo-1597733336794-12d05021d510?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuZXVyYWwlMjBuZXR3b3JrfGVufDB8fHx8MTc1OTM0MTQzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "neural network"
+    },
+    {
+      "id": "engenheiro-avatar",
+      "description": "Avatar for the Creative Engineer profile, a stylized icon of a gear mixed with a lightbulb.",
+      "imageUrl": "https://images.unsplash.com/photo-1706701665989-4c103def119f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnZWFyJTIwbGlnaHRidWxifGVufDB8fHx8MTc1OTQ1NDUyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gear lightbulb"
+    },
+    {
+      "id": "narrador-avatar",
+      "description": "Avatar for the Imaginative Narrator profile, a stylized icon of an open book with a quill.",
+      "imageUrl": "https://images.unsplash.com/photo-1663745266164-21eb685d98da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxib29rJTIwcXVpbGx8ZW58MHx8fHwxNzU5NDU0NTIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book quill"
+    },
+    {
+      "id": "lab-inventions",
+      "description": "Image for the Inventions Lab activity, showing a 3D blueprint of a complex machine.",
+      "imageUrl": "https://images.unsplash.com/photo-1726136855707-b5787766d60f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHwzRCUyMGJsdWVwcmludHxlbnwwfHx8fDE3NTk0NTQ1MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "3D blueprint"
+    },
+    {
+      "id": "studio-programming",
+      "description": "Image for the Programming Studio activity, showing colorful blocks of code connecting to form a structure.",
+      "imageUrl": "https://images.unsplash.com/photo-1603354350317-6f7aaa5911c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx2aXN1YWwlMjBwcm9ncmFtbWluZ3xlbnwwfHx8fDE3NTk0NTQ1MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "visual programming"
+    },
+    {
+      "id": "story-studio",
+      "description": "Image for the Storyteller's Studio activity, showing a magical, open storybook with characters coming to life.",
+      "imageUrl": "https://images.unsplash.com/photo-1663625318129-d349029ab0b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtYWdpY2FsJTIwYm9va3xlbnwwfHx8fDE3NTk0NTQ1MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "magical book"
+    },
+    {
+      "id": "logic-playground",
+      "description": "Image for the Logic Playground activity, showing a playful Rube Goldberg machine in action.",
+      "imageUrl": "https://images.unsplash.com/photo-1699981151607-b8919c57f191?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8UnViZSUyMEdvbGRiZXJnfGVufDB8fHx8MTc1OTQ1NDUyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Rube Goldberg"
+    },
+    {
+      "id": "collab-projects",
+      "description": "Image for the Collaborative Projects activity, showing two hands working together to build with glowing blocks.",
+      "imageUrl": "https://images.unsplash.com/photo-1623047121452-d6ddd82b9cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoYW5kcyUyMGJ1aWxkaW5nfGVufDB8fHx8MTc1OTQ1NDUyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hands building"
+    }
+  ]
 }
