@@ -53,6 +53,18 @@
       "description": "An illustration of an atom with electrons orbiting a nucleus, representing nuclear physics.",
       "imageUrl": "https://images.unsplash.com/photo-1599395243685-3e199341c66b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhdG9tJTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc1OTczODQyNnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "atom illustration"
+    },
+    {
+      "id": "language-adventure",
+      "description": "An illustration of a world map with icons of different languages, representing a language learning adventure.",
+      "imageUrl": "https://images.unsplash.com/photo-1714873384894-c6e428eb32ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bGFuZ3VhZ2UlMjBhZHZlbnR1cmV8ZW58MHx8fHwxNzU5NDU1MzMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "language adventure"
+    },
+    {
+      "id": "world-builder",
+      "description": "An illustration of a world being constructed with colorful blocks, similar to a video game.",
+      "imageUrl": "https://images.unsplash.com/photo-1577489075240-a53ff0198a52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxibG9jayUyMHdvcmxkfGVufDB8fHx8MTc1OTQ1NTMzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "block world"
     }
   ]
 }

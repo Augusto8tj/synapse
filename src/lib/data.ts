@@ -7,6 +7,8 @@ import {
   Construction,
   Users,
   Atom,
+  Languages,
+  Blocks,
 } from "lucide-react";
 
 const getImage = (id: string) =>
@@ -80,6 +82,26 @@ export const activities: Activity[] = [
     profiles: ["narrador"],
     image: getImage("story-studio").imageUrl,
     imageHint: getImage("story-studio").imageHint,
+  },
+  {
+    id: "language-adventure",
+    title: "Aventura dos Idiomas",
+    description: "Explore mundos, aprenda novas palavras e crie diálogos em outras línguas.",
+    Icon: Languages,
+    href: "#",
+    profiles: ["narrador"],
+    image: getImage("language-adventure").imageUrl,
+    imageHint: getImage("language-adventure").imageHint,
+  },
+    {
+    id: "world-builder",
+    title: "Construtor de Mundos",
+    description: "Use blocos de programação para criar seus próprios mundos e jogos.",
+    Icon: Blocks,
+    href: "#",
+    profiles: ["narrador"],
+    image: getImage("world-builder").imageUrl,
+    imageHint: getImage("world-builder").imageHint,
   },
   {
     id: "logic-playground",
