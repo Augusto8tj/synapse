@@ -5,11 +5,13 @@ import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
+  SidebarFooter,
 } from "@/components/ui/sidebar";
 import { MainNav } from "@/components/main-nav";
 import { UserNav } from "@/components/user-nav";
 import { Logo } from "@/components/logo";
 import { Suspense } from "react";
+import { ProfileMenu } from "@/components/profile-menu";
 
 export default function AppLayout({
   children,
@@ -30,6 +32,9 @@ export default function AppLayout({
           <SidebarContent className="p-2">
             <MainNav />
           </SidebarContent>
+          <SidebarFooter>
+            <ProfileMenu />
+          </SidebarFooter>
         </Sidebar>
         <SidebarInset>
           <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background/80 px-6 backdrop-blur-sm">
