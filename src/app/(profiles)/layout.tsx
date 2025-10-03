@@ -12,6 +12,7 @@ import { UserNav } from "@/components/user-nav";
 import { Logo } from "@/components/logo";
 import { Suspense } from "react";
 import { ProfileMenu } from "@/components/profile-menu";
+import Link from "next/link";
 
 export default function AppLayout({
   children,
@@ -27,7 +28,9 @@ export default function AppLayout({
           className="border-sidebar-border bg-sidebar text-sidebar-foreground"
         >
           <SidebarHeader>
-            <Logo />
+            <Link href="/">
+              <Logo />
+            </Link>
             <ProfileMenu />
           </SidebarHeader>
           <SidebarContent className="p-2">
