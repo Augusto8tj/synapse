@@ -28,12 +28,13 @@ export default function AppLayout({
         >
           <SidebarHeader>
             <Logo />
+            <ProfileMenu />
           </SidebarHeader>
           <SidebarContent className="p-2">
             <MainNav />
           </SidebarContent>
           <SidebarFooter>
-            <ProfileMenu />
+            {/* ProfileMenu was here */}
           </SidebarFooter>
         </Sidebar>
         <SidebarInset>
