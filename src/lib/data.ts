@@ -9,6 +9,7 @@ import {
   Atom,
   Languages,
   Blocks,
+  BrainCircuit,
 } from "lucide-react";
 
 const getImage = (id: string) =>
@@ -55,12 +56,22 @@ export const activities: Activity[] = [
     id: "studio-programming",
     title: "Estúdio de Programação",
     description:
-      "Crie jogos e arte generativa evoluindo de blocos para Python.",
+      "Crie jogos, animações e desafios de xadrez usando programação em blocos (Scratch) e evolua até Python.",
     Icon: Code,
     href: "#",
     profiles: ["engenheiro"],
     image: getImage("studio-programming").imageUrl,
     imageHint: getImage("studio-programming").imageHint,
+  },
+  {
+    id: "strategy-arena",
+    title: "Arena de Estratégia",
+    description: "Programe a IA para jogos de tabuleiro, resolva quebra-cabeças e crie estratégias matemáticas.",
+    Icon: BrainCircuit,
+    href: "#",
+    profiles: ["engenheiro"],
+    image: getImage("strategy-arena").imageUrl,
+    imageHint: getImage("strategy-arena").imageHint,
   },
   {
     id: "quantum-explorer",
