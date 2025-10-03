@@ -10,13 +10,21 @@ import {
 import { activities } from "@/lib/data";
 import type { ProfileId } from "@/lib/types";
 import { Home } from "lucide-react";
+import React from 'react';
+
 
 export function MainNav() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const profile = searchParams.get("profile") as ProfileId | null;
+  const [mounted, setMounted] = React.useState(false);
 
-  if (!profile) {
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+
+  if (!profile || !mounted) {
     return null; // Or a default menu
   }
 
