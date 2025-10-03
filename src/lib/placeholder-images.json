@@ -71,6 +71,12 @@
       "description": "An illustration of a digital brain with glowing connections, symbolizing the wonder of programming and creation.",
       "imageUrl": "https://images.unsplash.com/photo-1535223289827-42f1e9919769?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkaWdpdGFsJTIwYnJhaW58ZW58MHx8fHwxNzYwMTY5OTMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "digital brain"
+    },
+    {
+      "id": "tutor-ai",
+      "description": "An illustration of a friendly owl wearing glasses in front of a chalkboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1518463892881-d587bf2c296a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aXNlJTIwb3dsfGVufDB8fHx8MTc2MDM0MjQwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wise owl"
     }
   ]
 }

@@ -10,6 +10,7 @@ import {
   Languages,
   Blocks,
   BrainCircuit,
+  GraduationCap,
 } from "lucide-react";
 
 const getImage = (id: string) =>
@@ -136,4 +137,14 @@ export const activities: Activity[] = [
     image: getImage("collab-projects").imageUrl,
     imageHint: getImage("collab-projects").imageHint,
   },
+  {
+    id: "tutor",
+    title: "Professor Sabe Tudo",
+    description: "Tire dúvidas sobre qualquer matéria do colégio e aprenda mais.",
+    Icon: GraduationCap,
+    href: "/tutor",
+    profiles: ["engenheiro", "narrador"],
+    image: getImage("tutor-ai").imageUrl,
+    imageHint: getImage("tutor-ai").imageHint,
+  }
 ];

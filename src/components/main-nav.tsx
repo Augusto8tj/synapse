@@ -3,7 +3,14 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Home, Compass, BookHeart, Users, Settings } from "lucide-react";
+import {
+  Home,
+  Compass,
+  BookHeart,
+  Users,
+  Settings,
+  GraduationCap,
+} from "lucide-react";
 import {
   SidebarMenu,
   SidebarMenuItem,
@@ -14,6 +21,7 @@ const navItems = [
   { href: "/dashboard", label: "Início", Icon: Home },
   { href: "/explore", label: "Explorar", Icon: Compass },
   { href: "/story-studio", label: "Estúdio", Icon: BookHeart },
+  { href: "/tutor", label: "Professor", Icon: GraduationCap },
   { href: "/projects", label: "Projetos", Icon: Users },
   { href: "/settings", label: "Painel dos Pais", Icon: Settings },
 ];
