@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root,
+  .theme-default {
     --background: 190 67% 93%;
     --foreground: 224 71% 4%;
     --card: 0 0% 100%;
@@ -71,6 +72,94 @@
     --sidebar-accent-foreground: 190 67% 93%;
     --sidebar-border: 224 71% 12%;
     --sidebar-ring: 197 71% 52%;
+  }
+
+  .theme-jungle {
+    --background: 120 25% 95%;
+    --foreground: 120 60% 10%;
+    --card: 90 20% 98%;
+    --card-foreground: 120 60% 10%;
+    --primary: 100 45% 45%;
+    --accent: 40 90% 60%;
+    --sidebar-background: 110 50% 15%;
+    --sidebar-foreground: 90 40% 98%;
+    --sidebar-accent: 110 50% 25%;
+  }
+  .dark.theme-jungle {
+    --background: 120 60% 8%;
+    --foreground: 120 25% 90%;
+    --card: 120 50% 12%;
+    --card-foreground: 120 25% 90%;
+    --primary: 100 45% 55%;
+    --accent: 40 80% 60%;
+    --sidebar-background: 110 50% 10%;
+    --sidebar-accent: 110 50% 18%;
+  }
+  
+  .theme-ocean {
+    --background: 210 100% 97%;
+    --foreground: 220 50% 20%;
+    --card: 200 60% 99%;
+    --card-foreground: 220 50% 20%;
+    --primary: 205 80% 55%;
+    --accent: 180 70% 50%;
+    --sidebar-background: 220 60% 18%;
+    --sidebar-foreground: 200 40% 98%;
+    --sidebar-accent: 220 60% 28%;
+  }
+  .dark.theme-ocean {
+    --background: 220 50% 10%;
+    --foreground: 210 100% 92%;
+    --card: 220 40% 14%;
+    --card-foreground: 210 100% 92%;
+    --primary: 205 70% 60%;
+    --accent: 180 60% 55%;
+    --sidebar-background: 220 60% 8%;
+    --sidebar-accent: 220 60% 15%;
+  }
+
+  .theme-galaxy {
+    --background: 270 50% 8%;
+    --foreground: 270 60% 92%;
+    --card: 270 40% 12%;
+    --card-foreground: 270 60% 92%;
+    --primary: 280 90% 70%;
+    --accent: 330 100% 65%;
+    --sidebar-background: 270 50% 5%;
+    --sidebar-foreground: 270 50% 95%;
+    --sidebar-accent: 270 40% 15%;
+  }
+  .dark.theme-galaxy {
+    --background: 270 50% 5%;
+    --foreground: 270 60% 95%;
+    --card: 270 40% 10%;
+    --card-foreground: 270 60% 95%;
+    --primary: 280 90% 75%;
+    --accent: 330 100% 70%;
+    --sidebar-background: 270 60% 3%;
+    --sidebar-accent: 270_40%_12%;
+  }
+  
+  .theme-sunset {
+    --background: 30 100% 96%;
+    --foreground: 20 80% 20%;
+    --card: 25 80% 98%;
+    --card-foreground: 20 80% 20%;
+    --primary: 350 90% 60%;
+    --accent: 25 100% 60%;
+    --sidebar-background: 15 70% 20%;
+    --sidebar-foreground: 30 60% 98%;
+    --sidebar-accent: 15 70% 30%;
+  }
+  .dark.theme-sunset {
+    --background: 20 80% 10%;
+    --foreground: 30 100% 94%;
+    --card: 15 70% 14%;
+    --card-foreground: 30 100% 94%;
+    --primary: 350 85% 65%;
+    --accent: 25 95% 65%;
+    --sidebar-background: 15 70% 8%;
+    --sidebar-accent: 15 70% 18%;
   }
 }
 

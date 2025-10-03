@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
@@ -23,8 +24,15 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
-        {children}
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="default"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

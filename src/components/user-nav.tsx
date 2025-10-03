@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { profiles } from "@/lib/data";
 import type { ProfileId } from "@/lib/types";
+import { ThemeSwitcher } from "./theme-switcher";
 
 export function UserNav() {
   const searchParams = useSearchParams();
@@ -29,48 +30,51 @@ export function UserNav() {
   }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-          <Avatar className="h-10 w-10 border-2 border-primary">
-            <AvatarImage
-              src={currentProfile.avatar}
-              alt={currentProfile.name}
-              data-ai-hint={currentProfile.avatarHint}
-            />
-            <AvatarFallback>{currentProfile.initials}</AvatarFallback>
-          </Avatar>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
-        <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none font-headline">
-              {currentProfile.name}
-            </p>
-            <p className="text-xs leading-none text-muted-foreground">
-              {`Idade: ${currentProfile.age} anos`}
-            </p>
-          </div>
-        </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuLabel className="text-xs">Mudar Perfil</DropdownMenuLabel>
-          <Link href={`/dashboard?profile=${otherProfile.id}`}>
-            <DropdownMenuItem>
-              <Avatar className="h-6 w-6 mr-2">
-                <AvatarImage src={otherProfile.avatar} alt={otherProfile.name} />
-                <AvatarFallback>{otherProfile.initials}</AvatarFallback>
-              </Avatar>
-              <span>{otherProfile.name}</span>
-            </DropdownMenuItem>
+    <div className="flex items-center gap-2">
+      <ThemeSwitcher />
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+            <Avatar className="h-10 w-10 border-2 border-primary">
+              <AvatarImage
+                src={currentProfile.avatar}
+                alt={currentProfile.name}
+                data-ai-hint={currentProfile.avatarHint}
+              />
+              <AvatarFallback>{currentProfile.initials}</AvatarFallback>
+            </Avatar>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56" align="end" forceMount>
+          <DropdownMenuLabel className="font-normal">
+            <div className="flex flex-col space-y-1">
+              <p className="text-sm font-medium leading-none font-headline">
+                {currentProfile.name}
+              </p>
+              <p className="text-xs leading-none text-muted-foreground">
+                {`Idade: ${currentProfile.age} anos`}
+              </p>
+            </div>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuLabel className="text-xs">Mudar Perfil</DropdownMenuLabel>
+            <Link href={`/dashboard?profile=${otherProfile.id}`}>
+              <DropdownMenuItem>
+                <Avatar className="h-6 w-6 mr-2">
+                  <AvatarImage src={otherProfile.avatar} alt={otherProfile.name} />
+                  <AvatarFallback>{otherProfile.initials}</AvatarFallback>
+                </Avatar>
+                <span>{otherProfile.name}</span>
+              </DropdownMenuItem>
+            </Link>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <Link href="/">
+            <DropdownMenuItem>Sair</DropdownMenuItem>
           </Link>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <Link href="/">
-          <DropdownMenuItem>Sair</DropdownMenuItem>
-        </Link>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   );
 }
