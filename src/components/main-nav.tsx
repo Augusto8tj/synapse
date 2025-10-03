@@ -2,61 +2,57 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { cn } from "@/lib/utils";
-import {
-  Home,
-  Compass,
-  BookHeart,
-  Users,
-  Settings,
-  GraduationCap,
-} from "lucide-react";
 import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
-
-const navItems = [
-  { href: "/dashboard", label: "Início", Icon: Home },
-  { href: "/explore", label: "Explorar", Icon: Compass },
-  { href: "/story-studio", label: "Estúdio", Icon: BookHeart },
-  { href: "/tutor", label: "Professor", Icon: GraduationCap },
-  { href: "/projects", label: "Projetos", Icon: Users },
-  { href: "/settings", label: "Painel dos Pais", Icon: Settings },
-];
+import { activities } from "@/lib/data";
+import type { ProfileId } from "@/lib/types";
+import { Home } from "lucide-react";
 
 export function MainNav() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const profile = searchParams.get("profile");
+  const profile = searchParams.get("profile") as ProfileId | null;
+
+  if (!profile) {
+    return null; // Or a default menu
+  }
+
+  const navItems = activities.filter(activity => activity.profiles.includes(profile));
 
   return (
     <SidebarMenu>
-      {navItems.map((item) => {
-        // Only show Story Studio for the narrator profile
-        if (item.href === "/story-studio" && profile !== "narrador") {
-          return null;
-        }
+       <SidebarMenuItem key="/dashboard">
+            <SidebarMenuButton
+              asChild
+              isActive={pathname === '/dashboard'}
+              tooltip={{ children: "Início", side: "right" }}
+            >
+              <Link href={`/dashboard?profile=${profile}`}>
+                <Home />
+                <span>Início</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
 
-        // Hide some items for now
-        if (["/explore", "/projects", "/settings"].includes(item.href)) {
-          return null;
-        }
-        
+      {navItems.map((item) => {
         const hrefWithProfile = `${item.href}?profile=${profile}`;
         const isActive = pathname === item.href;
+        const isDisabled = item.href === "#";
 
         return (
-          <SidebarMenuItem key={item.href}>
+          <SidebarMenuItem key={item.id}>
             <SidebarMenuButton
               asChild
               isActive={isActive}
-              tooltip={{ children: item.label, side: "right" }}
+              disabled={isDisabled}
+              tooltip={{ children: item.title, side: "right" }}
             >
-              <Link href={hrefWithProfile}>
+              <Link href={isDisabled ? "#" : hrefWithProfile} aria-disabled={isDisabled} tabIndex={isDisabled ? -1 : undefined}>
                 <item.Icon />
-                <span>{item.label}</span>
+                <span>{item.title}</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
