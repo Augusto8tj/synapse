@@ -41,18 +41,16 @@ export function MainNav() {
 
         return (
           <SidebarMenuItem key={item.href}>
-            <Link href={hrefWithProfile} legacyBehavior passHref>
-              <SidebarMenuButton
-                asChild
-                isActive={isActive}
-                tooltip={{ children: item.label, side: "right" }}
-              >
-                <a>
-                  <item.Icon />
-                  <span>{item.label}</span>
-                </a>
-              </SidebarMenuButton>
-            </Link>
+            <SidebarMenuButton
+              asChild
+              isActive={isActive}
+              tooltip={{ children: item.label, side: "right" }}
+            >
+              <Link href={hrefWithProfile}>
+                <item.Icon />
+                <span>{item.label}</span>
+              </Link>
+            </SidebarMenuButton>
           </SidebarMenuItem>
         );
       })}
